@@ -8,5 +8,7 @@ namespace Homework_4.BLL
 {
     class RightLeftPart
     {
+        string Right { get; set; }
+        string Left { get; set; }
     }
 }

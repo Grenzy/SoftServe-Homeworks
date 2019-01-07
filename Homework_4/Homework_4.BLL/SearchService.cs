@@ -8,9 +8,33 @@ namespace Homework_4.BLL
 {
     class SearchService
     {
-        public static IList<int>FF (string pattern)
+        public static IList<int> GetAllIndexes(string str, string pattern, bool IgnoreCase)
         {
-            return null;
+            StringComparison comparison;
+            if (IgnoreCase)
+            {
+                comparison = StringComparison.InvariantCultureIgnoreCase;
+            }
+            else
+            {
+                comparison = StringComparison.InvariantCulture;
+            }
+
+            List<int> indexes = new List<int>();
+            int index;
+            for (int i = 0; i < str.Length; i++)
+            {
+                index = str.IndexOf(pattern, i, comparison);
+                if (index >= 0)
+                {
+                    indexes.Add(index);
+                }
+            }
+            return indexes;
+        }
+        public static IList<RightLeftPart> GetRightAndLeftParts(string str, IEnumerable<int> indexes, int length)
+        {
+
         }
     }
 }
