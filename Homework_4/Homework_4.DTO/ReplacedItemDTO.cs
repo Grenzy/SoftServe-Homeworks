@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Homework_4.DTO
 {
-    public class SearchedItemDTO
+    public class ReplacedItemDTO
     {
-        public string Pattern { get; set; }
+        public string OldValue { get; set; }
+        public string NewValue { get; set; }
         public string RightPart { get; set; }
         public string LeftPart { get; set; }
         public int PatternStringNumber { get; set; }

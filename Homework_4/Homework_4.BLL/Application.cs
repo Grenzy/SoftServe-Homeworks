@@ -1,4 +1,4 @@
-﻿using Homework_4.BLL.DTO;
+﻿using Homework_4.DTO;
 using Homework_4.CUI;
 using System;
 using System.Collections.Generic;
@@ -31,15 +31,42 @@ namespace Homework_4.BLL
             }
 
             string pattern = args[1];
-            bool ignoreCase = true;
-
+            bool ignoreCase;
+            string newValue = args[2];
             if (args.Length == 3)
             {
+                if (args[2] == "-i")
+                {
+                    ignoreCase = true;
+                }
+                else if (args[2] == "-n")
+                {
+                    ignoreCase = false;
+                }
+                else
+                {
+                    Console.WriteLine("Ошибка");
+                    return;
+                }
                 FindAndShow(path, pattern, ignoreCase);
             }
-  
-  
-
+            else
+            {
+                if (args[3] == "-i")
+                {
+                    ignoreCase = true;
+                }
+                else if (args[3] == "-n")
+                {
+                    ignoreCase = false;
+                }
+                else
+                {
+                    Console.WriteLine("Ошибка");
+                    return;
+                }
+                ReplaceAndShow(path, pattern, newValue, ignoreCase);
+            }
         }
 
         private static void FindAndShow(string path, string pattern, bool ignoreCase)
@@ -47,20 +74,27 @@ namespace Homework_4.BLL
             var file = File.ReadAllLines(path);
             var indexes = SearchService.GetAllIndexes(file, pattern, ignoreCase);
             var searchedItems = new List<SearchedItemDTO>();
-            SearchService.SetPartsOfLine(file, searchedItems, indexes, pattern);
+            SearchService.SetPartsOfLineForSearchedDTO(file, searchedItems, indexes, pattern);
             SearchService.SetPriviousAndNextLines(file, searchedItems, indexes);
             ConsoleUI.ShowSearchedItems(searchedItems);
         }
-        private static void RepleceAndShow(string path, string pattern, bool ignoreCase)
+        private static void ReplaceAndShow(string path, string oldValue, string newValue, bool ignoreCase)
         {
             var file = File.ReadAllLines(path);
-            var indexes = SearchService.GetAllIndexes(file, pattern, ignoreCase);
-            var searchedItems = new List<SearchedItemDTO>();
-            SearchService.SetPartsOfLine(file, searchedItems, indexes, pattern);
-            SearchService.SetPriviousAndNextLines(file, searchedItems, indexes);
-            ConsoleUI.ShowSearchedItems(searchedItems);
+            var indexes = SearchService.GetAllIndexes(file, oldValue, ignoreCase);
+            var replacedItems = new List<ReplacedItemDTO>();
+            SearchService.SetPartsOfLineForReplacedDTO(file, replacedItems, indexes, oldValue);
+            SearchService.SetPriviousAndNextLinesReplace(file, replacedItems, indexes);
+            foreach (var p in replacedItems)
+            {
+                p.NewValue = newValue;
+            }
+            SearchService.Replace(file, indexes, oldValue, newValue);
+            //File.WriteAllLines("2.txt", file);
+            File.WriteAllLines(path, file);
+            ConsoleUI.ShowReplacedItems(replacedItems);
         }
 
     }
-    
+
 }
