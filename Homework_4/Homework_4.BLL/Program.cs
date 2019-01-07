@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Homework_4.BLL
 {
-    class RightLeftPart
+    class Program
     {
-        string Right { get; set; }
-        string Left { get; set; }
+        static void Main(string[] args)
+        {
+            new Application().Start(args);
+        }
     }
 }
