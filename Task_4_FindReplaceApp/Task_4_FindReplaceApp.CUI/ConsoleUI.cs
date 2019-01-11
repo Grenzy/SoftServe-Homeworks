@@ -86,5 +86,9 @@ namespace Task_4_FindReplaceApp.CUI
             Console.WriteLine(Environment.NewLine);
             Console.WriteLine($"Number of replacements: {ri.Count}");
         }
+        public static void ShowHelp()
+        {
+            Console.WriteLine("help");
+        }
     }
 }

@@ -13,72 +13,49 @@ namespace Task_4_FindReplaceApp.BLL
     {
         public void Start(params string[] args)
         {
-            if (args.Length == 0)
+            Feature selectedFeature;
+            string path;
+            string pattern;
+            string newValue;
+            bool ignoreCase;
+
+            try
             {
-                Console.WriteLine("help");
-                return;
+                selectedFeature = ArgumentsAnalyzer.ParseArgs(args, out path, out pattern, out newValue, out ignoreCase);
             }
-            if (args.Length < 2)
+            catch (ArgumentException)
             {
-                Console.WriteLine("Ошибка");
-                return;
-            }
-            string path = args[0];
-            if (!File.Exists(path))
-            {
-                Console.WriteLine("Ошибка");
+                ConsoleUI.ShowHelp();
                 return;
             }
 
-            string pattern = args[1];
-            bool ignoreCase;
-            string newValue = args[2];
-            if (args.Length == 3)
+            switch (selectedFeature)
             {
-                if (args[2] == "-i")
-                {
-                    ignoreCase = true;
-                }
-                else if (args[2] == "-n")
-                {
-                    ignoreCase = false;
-                }
-                else
-                {
-                    Console.WriteLine("Ошибка");
-                    return;
-                }
-                FindAndShow(path, pattern, ignoreCase);
-            }
-            else
-            {
-                if (args[3] == "-i")
-                {
-                    ignoreCase = true;
-                }
-                else if (args[3] == "-n")
-                {
-                    ignoreCase = false;
-                }
-                else
-                {
-                    Console.WriteLine("Ошибка");
-                    return;
-                }
-                ReplaceAndShow(path, pattern, newValue, ignoreCase);
+                case Feature.Help:
+                    ConsoleUI.ShowHelp();
+                    break;
+                case Feature.Find:
+                    List<SearchedItemDTO> searchedItems = Find(path, pattern, ignoreCase);
+                    ConsoleUI.ShowSearchedItems(searchedItems);
+                    break;
+                case Feature.Replace:
+                    List<ReplacedItemDTO> replacedItems = Replace(path, pattern, newValue, ignoreCase);
+                    ConsoleUI.ShowReplacedItems(replacedItems);
+                    break;
             }
         }
 
-        private static void FindAndShow(string path, string pattern, bool ignoreCase)
+        private static List<SearchedItemDTO> Find(string path, string pattern, bool ignoreCase)
         {
             var file = File.ReadAllLines(path);
             var indexes = SearchService.GetAllIndexes(file, pattern, ignoreCase);
             var searchedItems = new List<SearchedItemDTO>();
             SearchService.SetPartsOfLineForSearchedDTO(file, searchedItems, indexes, pattern);
             SearchService.SetPriviousAndNextLines(file, searchedItems, indexes);
-            ConsoleUI.ShowSearchedItems(searchedItems);
+            return searchedItems;
         }
-        private static void ReplaceAndShow(string path, string oldValue, string newValue, bool ignoreCase)
+
+        private static List<ReplacedItemDTO> Replace(string path, string oldValue, string newValue, bool ignoreCase)
         {
             var file = File.ReadAllLines(path);
             var indexes = SearchService.GetAllIndexes(file, oldValue, ignoreCase);
@@ -90,11 +67,8 @@ namespace Task_4_FindReplaceApp.BLL
                 p.NewValue = newValue;
             }
             SearchService.Replace(file, indexes, oldValue, newValue);
-            //File.WriteAllLines("2.txt", file);
             File.WriteAllLines(path, file);
-            ConsoleUI.ShowReplacedItems(replacedItems);
+            return replacedItems;
         }
-
     }
-
 }
