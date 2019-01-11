@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Homework_4.BLL.DTO
+namespace Task_4_FindReplaceApp.BLL.DTO
 {
     class PartsOfLine
     {

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("Homework_4")]
+[assembly: AssemblyTitle("Task_4_FindReplaceApp.BLL")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Homework_4")]
+[assembly: AssemblyProduct("Task_4_FindReplaceApp.BLL")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("35721259-eb90-48a0-90db-a2c98f86d92e")]
+[assembly: Guid("465e258d-4816-41fa-bcbc-4d05eb360cbb")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //

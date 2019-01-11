@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Homework_4.DTO;
-namespace Homework_4.CUI
+using Task_4_FindReplaceApp.DTO;
+namespace Task_4_FindReplaceApp.CUI
 {
     public class ConsoleUI
     {

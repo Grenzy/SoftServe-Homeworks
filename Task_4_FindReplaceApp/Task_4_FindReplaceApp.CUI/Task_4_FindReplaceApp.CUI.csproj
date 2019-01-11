@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{0F67D209-41DF-46AB-BDA0-86D0E29F88D3}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Homework_4.CUI</RootNamespace>
-    <AssemblyName>Homework_4.CUI</AssemblyName>
+    <RootNamespace>Task_4_FindReplaceApp.CUI</RootNamespace>
+    <AssemblyName>Task_4_FindReplaceApp.CUI</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -56,9 +56,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Homework_4.DTO\Homework_4.DTO.csproj">
+    <ProjectReference Include="..\Task_4_FindReplaceApp.DTO\Task_4_FindReplaceApp.DTO.csproj">
       <Project>{8ddcb0f2-a759-4bbb-ac5e-ff21e34be0fa}</Project>
-      <Name>Homework_4.DTO</Name>
+      <Name>Task_4_FindReplaceApp.DTO</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework_4.BLL", "Homework_4.BLL\Homework_4.BLL.csproj", "{465E258D-4816-41FA-BCBC-4D05EB360CBB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_4_FindReplaceApp.BLL", "Task_4_FindReplaceApp.BLL\Task_4_FindReplaceApp.BLL.csproj", "{465E258D-4816-41FA-BCBC-4D05EB360CBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework_4.CUI", "Homework_4.CUI\Homework_4.CUI.csproj", "{0F67D209-41DF-46AB-BDA0-86D0E29F88D3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_4_FindReplaceApp.CUI", "Task_4_FindReplaceApp.CUI\Task_4_FindReplaceApp.CUI.csproj", "{0F67D209-41DF-46AB-BDA0-86D0E29F88D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework_4.DTO", "Homework_4.DTO\Homework_4.DTO.csproj", "{8DDCB0F2-A759-4BBB-AC5E-FF21E34BE0FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_4_FindReplaceApp.DTO", "Task_4_FindReplaceApp.DTO\Task_4_FindReplaceApp.DTO.csproj", "{8DDCB0F2-A759-4BBB-AC5E-FF21E34BE0FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

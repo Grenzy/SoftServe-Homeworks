@@ -1,5 +1,5 @@
-﻿using Homework_4.DTO;
-using Homework_4.CUI;
+﻿using Task_4_FindReplaceApp.DTO;
+using Task_4_FindReplaceApp.CUI;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Homework_4.BLL
+namespace Task_4_FindReplaceApp.BLL
 {
     public class Application
     {

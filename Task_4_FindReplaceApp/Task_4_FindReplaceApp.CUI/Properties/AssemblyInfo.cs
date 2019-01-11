@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("Homework_4.DAL")]
+[assembly: AssemblyTitle("Task_4_FindReplaceApp.CUI")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Homework_4.DAL")]
+[assembly: AssemblyProduct("Task_4_FindReplaceApp.CUI")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("2d5e6657-1b49-423c-80ed-fd83f2c1077b")]
+[assembly: Guid("0f67d209-41df-46ab-bda0-86d0e29f88d3")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //

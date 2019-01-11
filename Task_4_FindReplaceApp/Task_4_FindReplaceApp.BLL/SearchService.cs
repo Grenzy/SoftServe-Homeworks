@@ -1,12 +1,12 @@
-﻿using Homework_4.BLL.DTO;
-using Homework_4.DTO;
+﻿using Task_4_FindReplaceApp.BLL.DTO;
+using Task_4_FindReplaceApp.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Homework_4.BLL
+namespace Task_4_FindReplaceApp.BLL
 {
     class SearchService
     {
