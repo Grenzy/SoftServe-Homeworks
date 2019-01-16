@@ -14,7 +14,7 @@ namespace Task_8_FibonacciNumbers.BLL
         public FibonacciNumbers(int number)
         {
             int tempValue;
-            firstNumber = 1;
+            firstNumber = 0;
             secondNumber = 1;
             while (secondNumber < number)
             {
