@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_3_SortTriangles.BL", "Task_3_SortTriangles.BL\Task_3_SortTriangles.BL.csproj", "{17B6D62F-D206-45BD-8475-B6AC3861A7C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_3_SortTriangles.Interfaces", "Task_3_SortTriangles.Interfaces\Task_3_SortTriangles.Interfaces.csproj", "{E5B79F93-86C5-442C-9990-CAC8C1803001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_3_SortTriangles.Presentation", "Task_3_SortTriangles.Presentation\Task_3_SortTriangles.Presentation.csproj", "{30E3E4E0-3874-4E60-9F35-BE77336A167C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_3_SortTriangles.DTO", "Task_3_SortTriangles.DTO\Task_3_SortTriangles.DTO.csproj", "{8CB3A4CC-74A7-4EDF-BA19-566A5EA7956E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{17B6D62F-D206-45BD-8475-B6AC3861A7C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17B6D62F-D206-45BD-8475-B6AC3861A7C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17B6D62F-D206-45BD-8475-B6AC3861A7C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17B6D62F-D206-45BD-8475-B6AC3861A7C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5B79F93-86C5-442C-9990-CAC8C1803001}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5B79F93-86C5-442C-9990-CAC8C1803001}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5B79F93-86C5-442C-9990-CAC8C1803001}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5B79F93-86C5-442C-9990-CAC8C1803001}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30E3E4E0-3874-4E60-9F35-BE77336A167C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30E3E4E0-3874-4E60-9F35-BE77336A167C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30E3E4E0-3874-4E60-9F35-BE77336A167C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30E3E4E0-3874-4E60-9F35-BE77336A167C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CB3A4CC-74A7-4EDF-BA19-566A5EA7956E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CB3A4CC-74A7-4EDF-BA19-566A5EA7956E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CB3A4CC-74A7-4EDF-BA19-566A5EA7956E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CB3A4CC-74A7-4EDF-BA19-566A5EA7956E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8DFA23BE-4D52-49C2-B312-AFB408E1467E}
+	EndGlobalSection
+EndGlobal
