@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
+    <Compile Include="Extensions\TriangleExtension.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="InputStringAnalyzer.cs" />
@@ -62,9 +63,11 @@
       <Project>{e5b79f93-86c5-442c-9990-cac8c1803001}</Project>
       <Name>Task_3_SortTriangles.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Task_3_SortTriangles.Presentation\Task_3_SortTriangles.Presentation.csproj">
+      <Project>{30e3e4e0-3874-4e60-9f35-be77336a167c}</Project>
+      <Name>Task_3_SortTriangles.Presentation</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Extensions\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

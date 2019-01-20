@@ -20,8 +20,9 @@ namespace Task_3_SortTriangles.BL
         public double Area => area;
 
 
-        private Triangle(double sideA, double sideB, double sideC)
+        private Triangle(string name, double sideA, double sideB, double sideC)
         {
+            this.name = name;
             this.sideA = sideA;
             this.sideB = sideB;
             this.sideC = sideC;
@@ -35,7 +36,7 @@ namespace Task_3_SortTriangles.BL
 
         }
 
-        private static Triangle CreateTriangle(string name, double sideA, double sideB, double sideC)
+        public static Triangle CreateTriangle(string name, double sideA, double sideB, double sideC)
         {
             if (name == null)
             {
@@ -51,13 +52,13 @@ namespace Task_3_SortTriangles.BL
                     "be greater than zero.");
             }
             var sortedSides = new[] { sideA, sideB, sideC }.OrderByDescending(n => n).ToArray();
-            if ((sortedSides[0] - (sortedSides[1] + sortedSides[2])) <= 0)
+            if ((sortedSides[0] - (sortedSides[1] + sortedSides[2])) >= 0)
             {
                 throw new ArgumentException("The largest side of " +
                     "the triangle must be greater than the sum of the smaller");
             }
             
-            return new Triangle(sideA, sideB, sideC);
+            return new Triangle(name, sideA, sideB, sideC);
         }
 
 
