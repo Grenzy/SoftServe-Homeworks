@@ -42,7 +42,7 @@ namespace Task_3_SortTriangles.BL
             {
                 throw new ArgumentNullException("Triangle name not specified");
             }
-            if(name == string.Empty)
+            if (name == string.Empty)
             {
                 throw new FormatException("Triangle name not specified");
             }
@@ -51,13 +51,13 @@ namespace Task_3_SortTriangles.BL
                 throw new ArgumentException("The sides of the triangle must " +
                     "be greater than zero.");
             }
-            var sortedSides = new[] { sideA, sideB, sideC }.OrderByDescending(n => n).ToArray();
-            if ((sortedSides[0] - (sortedSides[1] + sortedSides[2])) >= 0)
+
+            if (!((sideA < sideB + sideC) && (sideB < sideA + sideC) && (sideC < sideA + sideB)))
             {
-                throw new ArgumentException("The largest side of " +
-                    "the triangle must be greater than the sum of the smaller");
+                throw new ArgumentException("The longest side of the triangle should be " +
+                    "shorter than the sum of the other sides.");
             }
-            
+
             return new Triangle(name, sideA, sideB, sideC);
         }
 
