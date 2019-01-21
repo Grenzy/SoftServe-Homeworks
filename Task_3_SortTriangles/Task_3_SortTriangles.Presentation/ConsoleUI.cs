@@ -8,11 +8,11 @@ using Task_3_SortTriangles.Interfaces;
 
 namespace Task_3_SortTriangles.Presentation
 {
-    public class ConsoleUI : IInputTriangle, IDisplayTriangles
+    public class ConsoleUI : IUserInterface
     {
         public void DisplayError(string message)
         {
-            Console.WriteLine(message);
+            Console.WriteLine("Error: " + message);
         }
 
         public void DisplayTriangles(TriangleDTO[] triangles)
@@ -32,7 +32,7 @@ namespace Task_3_SortTriangles.Presentation
             return answer;
         }
 
-        public string GetTriangle()
+        public string InputTriangle()
         {
             Console.WriteLine("Enter triangle: <name> <side A> <side B> <side C>");
             string triangle = Console.ReadLine();

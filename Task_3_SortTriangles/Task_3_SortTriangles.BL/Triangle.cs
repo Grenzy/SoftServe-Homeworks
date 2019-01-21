@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task_3_SortTriangles.BL
 {
-    class Triangle : IComparable<Triangle>
+    internal class Triangle : IComparable<Triangle>
     {
         private readonly string name;
         private readonly double sideA;

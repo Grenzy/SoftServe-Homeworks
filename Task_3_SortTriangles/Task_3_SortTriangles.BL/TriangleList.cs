@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task_3_SortTriangles.BL
 {
-    class TrianglesList
+    internal class TriangleList
     {
         private List<Triangle> trianglesList = new List<Triangle>();
         public Triangle[] GetSortedTriangles()

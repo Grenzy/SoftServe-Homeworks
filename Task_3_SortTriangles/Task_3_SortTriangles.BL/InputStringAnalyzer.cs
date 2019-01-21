@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task_3_SortTriangles.BL
 {
-    class InputStringAnalyzer
+    internal class InputStringAnalyzer
     {
         public static void Parse(string inputString, out string name, out double sideA, out double sideB, out double sideC)
         {
