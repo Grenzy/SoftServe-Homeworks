@@ -49,7 +49,6 @@
     <Compile Include="TriangleService.cs" />
     <Compile Include="Extensions\TriangleExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="InputStringAnalyzer.cs" />
     <Compile Include="Triangle.cs" />
     <Compile Include="TriangleList.cs" />
   </ItemGroup>

@@ -13,13 +13,14 @@ namespace Task_3_SortTriangles.Presentation
             ITriangleList triangleList = new TriangleService();
             IUserInterface UI = new ConsoleUI();
             bool doesInputNext = false;
+
             do
             {
-                string inputString = UI.InputTriangle();
+            
                 TriangleParametersDTO triangleParameters;
                 try
                 {
-                    triangleParameters = triangleList.Parse(inputString);
+                    triangleParameters = UI.InputTriangle();
                 }
                 catch (Exception ex)
                 {
@@ -38,11 +39,13 @@ namespace Task_3_SortTriangles.Presentation
                     continue;
                 }
 
-                doesInputNext = triangleList.DoesInputNext(UI.DoesInputNext());
+                doesInputNext = UI.DoesInputNext();
             } while (doesInputNext);
 
             TriangleDTO[] sortedTriangles = triangleList.GetSortedTrianglesList();
             UI.DisplayTriangles(sortedTriangles);
         }
+
+     
     }
 }

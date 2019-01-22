@@ -8,7 +8,7 @@ using Task_3_SortTriangles.Interfaces;
 
 namespace Task_3_SortTriangles.Presentation
 {
-    public class ConsoleUI : IUserInterface
+    internal class ConsoleUI : IUserInterface
     {
         public void DisplayError(string message)
         {
@@ -21,22 +21,36 @@ namespace Task_3_SortTriangles.Presentation
             Console.WriteLine("============= Triangles list: ===============");
             for (int i = 0; i < triangles.Length; i++)
             {
-                Console.WriteLine($"{i + 1} [Triangle {triangles[i].Name}]: {triangles[i].Area:0.00} cm");
+                Console.WriteLine($"{i + 1}. [Triangle {triangles[i].Name}]: {triangles[i].Area:0.00} cm");
             }
         }
 
-        public string DoesInputNext()
+        public bool DoesInputNext()
         {
             Console.WriteLine("Add another triangle? y/yes");
             string answer = Console.ReadLine();
-            return answer;
+
+            return DoesInputNext(answer);
         }
 
-        public string InputTriangle()
+        public TriangleParametersDTO InputTriangle()
         {
             Console.WriteLine("Enter triangle: <name> <side A> <side B> <side C>");
-            string triangle = Console.ReadLine();
-            return triangle;
+            string inputString = Console.ReadLine();
+
+            string name;
+            double sideA;
+            double sideB;
+            double sideC;
+            InputStringAnalyzer.Parse(inputString, out name, out sideA, out sideB, out sideC);
+
+            return new TriangleParametersDTO(name, sideA, sideB, sideC);
+
+        }
+        private bool DoesInputNext(string answer)
+        {
+            return answer.Equals("Y", StringComparison.CurrentCultureIgnoreCase)
+                || (answer.Equals("YES", StringComparison.CurrentCultureIgnoreCase));
         }
     }
 }

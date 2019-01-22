@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Task_8_FibonacciNumbers.UI;
 
-namespace Task_8_FibonacciNumbers.BLL
+namespace Task_8_FibonacciNumbers.UI
 {
     class Application
     {
