@@ -17,7 +17,6 @@ namespace Task_3_SortTriangles.Presentation
 
         public void DisplayTriangles(TriangleDTO[] triangles)
         {
-
             Console.WriteLine("============= Triangles list: ===============");
             for (int i = 0; i < triangles.Length; i++)
             {
@@ -30,7 +29,7 @@ namespace Task_3_SortTriangles.Presentation
             Console.WriteLine("Add another triangle? y/yes");
             string answer = Console.ReadLine();
 
-            return DoesInputNext(answer);
+            return InputStringAnalyzer.ParseDoesNeedNext(answer);
         }
 
         public TriangleParametersDTO InputTriangle()
@@ -42,15 +41,10 @@ namespace Task_3_SortTriangles.Presentation
             double sideA;
             double sideB;
             double sideC;
-            InputStringAnalyzer.Parse(inputString, out name, out sideA, out sideB, out sideC);
+            InputStringAnalyzer.ParseTriangleParameters(inputString, out name, out sideA, out sideB, out sideC);
 
             return new TriangleParametersDTO(name, sideA, sideB, sideC);
 
-        }
-        private bool DoesInputNext(string answer)
-        {
-            return answer.Equals("Y", StringComparison.CurrentCultureIgnoreCase)
-                || (answer.Equals("YES", StringComparison.CurrentCultureIgnoreCase));
         }
     }
 }
