@@ -42,10 +42,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Envelope.cs" />
-    <Compile Include="EnvelopeService.cs" />
+    <Compile Include="EnvelopeComparerService.cs" />
     <Compile Include="Exceptions\EnvelopeNullException.cs" />
     <Compile Include="Interfaces\INestable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Project>{02d930c0-157d-4829-9ef9-81d18ceab7df}</Project>
+      <Name>Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

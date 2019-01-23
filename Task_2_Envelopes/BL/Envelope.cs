@@ -26,12 +26,22 @@ namespace Task_2_Envelopes.BL
             {
                 throw new ArgumentException("The sides of the envelope must be greater than 0");
             }
+
             return new Envelope(width, height);
         }
-        public bool IsNested(Envelope other)
+        public int IsNested(Envelope other)
         {
-            return ((width > other.Width) && (height > other.height)) ||
-                ((width > other.height) && height > other.Width);
+            if (((width > other.Width) && (height > other.height)) ||
+                 ((width > other.height) && height > other.Width))
+            {
+                return 1;
+            }
+            else if (((width < other.Width) && (height < other.height)) ||
+                ((width < other.height) && (height < other.Width)))
+            {
+                return -1;
+            }
+            return 0;
         }
     }
 }

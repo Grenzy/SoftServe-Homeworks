@@ -8,8 +8,10 @@ namespace Task_2_Envelopes.Presentation
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
+            new Application().Start();
         }
     }
 }

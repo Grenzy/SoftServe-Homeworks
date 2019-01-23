@@ -8,6 +8,6 @@ namespace Task_2_Envelopes.BL.Interfaces
 {
     internal interface INestable<T>
     {
-        bool IsNested(T other);
+        int IsNested(T other);
     }
 }

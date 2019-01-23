@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task_2_Envelopes.Presentation.Models
 {
-    internal class EnvelopeModel
+    class EnvelopeModel
     {
         public EnvelopeModel(double width, double height)
         {

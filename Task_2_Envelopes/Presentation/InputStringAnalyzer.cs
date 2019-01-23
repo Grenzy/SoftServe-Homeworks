@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task_2_Envelopes.Presentation
 {
-    class InputStringAnalyze
+    class InputStringAnalyzer
     {
         public static void ParseEnvelopeParameters(string inputString, out double width, out double height)
         {
@@ -17,6 +17,11 @@ namespace Task_2_Envelopes.Presentation
             }
             width = double.Parse(values[0]);
             height = double.Parse(values[1]);
+        }
+        public static bool AnalyzeAnswer(string answer)
+        {
+            return answer.Equals("Y", StringComparison.CurrentCultureIgnoreCase)
+               || (answer.Equals("YES", StringComparison.CurrentCultureIgnoreCase));
         }
     }
 }

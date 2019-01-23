@@ -4,27 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Task_2_Envelopes.BL.Exceptions;
+using Task_2_Envelopes.Interfaces;
 
 namespace Task_2_Envelopes.BL
 {
-    public class EnvelopeComparerService
+    public class EnvelopeComparerService: IEnvelopeChecker
     {
         private Envelope envelopeA;
         private Envelope envelopeB;
         
-        public void CreateOuterEnvelope(double width, double height)
+        public void CreateFirstEnvelope(double width, double height)
         {
             envelopeA = Envelope.CreateEnvelope(width, height);
         }
-        public void CreateInnerEnvelope(double width, double height)
+        public void CreateSecondEnvelope(double width, double height)
         {
             envelopeB = Envelope.CreateEnvelope(width, height);
         }
-        public bool IsNasted()
+        public int IsNasted()
         {
             if ((envelopeA == null) || envelopeB == null)
             {
-                throw new EnvelopeIsNullException("Triangle is null");
+                throw new EnvelopeIsNullException("Envelope is null");
             }
 
             return envelopeA.IsNested(envelopeB);
