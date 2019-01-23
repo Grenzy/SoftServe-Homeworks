@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task_8_FibonacciNumbers.BLL
+namespace Task_8_FibonacciNumbers.BL
 {
     class FibonacciNumbers
     {
@@ -33,27 +33,6 @@ namespace Task_8_FibonacciNumbers.BLL
             secondNumber = sum;
             return sum;
         }
-        public int[] GetRange(int upperBound)
-        {
-            List<int> numbers = new List<int>();
-            int number;
-            while (true)
-            {
-                try
-                {
-                    number = GetNext();
-                }
-                catch
-                {
-                    break;
-                }
-                if (number > upperBound)
-                {
-                    break;
-                }
-                numbers.Add(number);
-            }
-            return numbers.ToArray();
-        }
+     
     }
 }

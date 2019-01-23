@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Task_8_FibonacciNumbers.UI;
+using Task_8_FibonacciNumbers.Interfaces;
+using Task_8_FibonacciNumbers.BL;
 
 namespace Task_8_FibonacciNumbers.UI
 {
@@ -38,8 +39,8 @@ namespace Task_8_FibonacciNumbers.UI
                 ConsoleUI.ShowHelp();
             }
 
-            FibonacciNumbers fibonacciNumbers = new FibonacciNumbers(lowerBound);
-            int[] numbers = fibonacciNumbers.GetRange(upperBound);
+            IRange fibonacciNumbers = new FibonacciService();
+            int[] numbers = fibonacciNumbers.GetRange(lowerBound, upperBound);
 
             if (numbers.Any())
             {
