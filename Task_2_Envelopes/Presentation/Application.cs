@@ -10,6 +10,7 @@ namespace Task_2_Envelopes.Presentation
     {
         public void Start()
         {
+#error This application is not ready yet.
 
         }
     }

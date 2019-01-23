@@ -29,7 +29,7 @@ namespace Task_3_SortTriangles.Presentation
             Console.WriteLine("Add another triangle? y/yes");
             string answer = Console.ReadLine();
 
-            return InputStringAnalyzer.ParseDoesNeedNext(answer);
+            return InputStringAnalyzer.AnalyzeAnswer(answer);
         }
 
         public TriangleParametersDTO InputTriangle()

@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Envelope.cs" />
     <Compile Include="EnvelopeService.cs" />
+    <Compile Include="Exceptions\EnvelopeNullException.cs" />
     <Compile Include="Interfaces\INestable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

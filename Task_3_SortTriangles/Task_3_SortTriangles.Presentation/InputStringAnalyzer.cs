@@ -20,7 +20,7 @@ namespace Task_3_SortTriangles.Presentation
             sideB = double.Parse(values[2]);
             sideC = double.Parse(values[3]);
         }
-        public static bool ParseDoesNeedNext(string inputString)
+        public static bool AnalyzeAnswer(string inputString)
         {
             return inputString.Equals("Y", StringComparison.CurrentCultureIgnoreCase)
                || (inputString.Equals("YES", StringComparison.CurrentCultureIgnoreCase));

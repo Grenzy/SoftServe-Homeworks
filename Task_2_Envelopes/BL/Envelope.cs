@@ -9,16 +9,29 @@ namespace Task_2_Envelopes.BL
 {
     class Envelope : INestable<Envelope>
     {
-        private readonly double sideA;
-        private readonly double sideB;
+        private readonly double width;
+        private readonly double height;
 
-        public double SideA => sideA;
-        public double SideB => sideB;
+        public double Width => width;
+        public double Height => height;
 
+        private Envelope(double width, double height)
+        {
+            this.width = width;
+            this.height = height;
+        }
+        public static Envelope CreateEnvelope(double width, double height)
+        {
+            if ((width <= 0) || (height <= 0))
+            {
+                throw new ArgumentException("The sides of the envelope must be greater than 0");
+            }
+            return new Envelope(width, height);
+        }
         public bool IsNested(Envelope other)
         {
-            return ((sideA > other.SideA) && (sideB > other.sideB)) ||
-                ((sideA > other.sideB) && sideB > other.SideA);
+            return ((width > other.Width) && (height > other.height)) ||
+                ((width > other.height) && height > other.Width);
         }
     }
 }
