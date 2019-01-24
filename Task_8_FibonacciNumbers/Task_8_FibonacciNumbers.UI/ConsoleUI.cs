@@ -22,12 +22,8 @@ namespace Task_8_FibonacciNumbers.UI
         }
         public static void ShowRange(int[] range)
         {
-            StringBuilder stringBuilder = new StringBuilder();
-            foreach (int number in range)
-            {
-                stringBuilder.Append(number + " ");
-            }
-            Console.WriteLine(stringBuilder);
+            string numbers = string.Join(", ", range);
+            Console.WriteLine(numbers);
         }
         public static void ShowNumbersNotFoundMessage()
         {
