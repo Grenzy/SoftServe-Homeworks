@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "Task_3_SortTriangles.BL\BL.csproj", "{17B6D62F-D206-45BD-8475-B6AC3861A7C7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{17B6D62F-D206-45BD-8475-B6AC3861A7C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Task_3_SortTriangles.Interfaces\Interfaces.csproj", "{E5B79F93-86C5-442C-9990-CAC8C1803001}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{E5B79F93-86C5-442C-9990-CAC8C1803001}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Task_3_SortTriangles.Presentation\Presentation.csproj", "{30E3E4E0-3874-4E60-9F35-BE77336A167C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Presentation\Presentation.csproj", "{30E3E4E0-3874-4E60-9F35-BE77336A167C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "Task_3_SortTriangles.DTO\DTO.csproj", "{8CB3A4CC-74A7-4EDF-BA19-566A5EA7956E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{8CB3A4CC-74A7-4EDF-BA19-566A5EA7956E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

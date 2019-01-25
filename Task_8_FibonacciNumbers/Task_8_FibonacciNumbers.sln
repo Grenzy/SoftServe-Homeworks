@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "Task_8_FibonacciNumbers.BLL\BL.csproj", "{41EE198D-0C53-40DF-A5EF-297330E46736}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BLL\BL.csproj", "{41EE198D-0C53-40DF-A5EF-297330E46736}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "Task_8_FibonacciNumbers.UI\UI.csproj", "{E7D1417A-21CB-401E-8222-9A136AEABA91}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{E7D1417A-21CB-401E-8222-9A136AEABA91}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{881EA2CE-DCE1-4560-9B16-55EB864A07B2}"
 EndProject

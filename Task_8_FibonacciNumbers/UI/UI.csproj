@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{17B6D62F-D206-45BD-8475-B6AC3861A7C7}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>Task_3_SortTriangles.BL</RootNamespace>
-    <AssemblyName>BL</AssemblyName>
+    <ProjectGuid>{E7D1417A-21CB-401E-8222-9A136AEABA91}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Task_8_FibonacciNumbers.UI</RootNamespace>
+    <AssemblyName>UI</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,25 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TriangleService.cs" />
-    <Compile Include="Extensions\TriangleExtension.cs" />
+    <Compile Include="Application.cs" />
+    <Compile Include="CommandLinesAnalyzer.cs" />
+    <Compile Include="ConsoleUI.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Triangle.cs" />
-    <Compile Include="TriangleList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Task_3_SortTriangles.DTO\DTO.csproj">
-      <Project>{8cb3a4cc-74a7-4edf-ba19-566a5ea7956e}</Project>
-      <Name>DTO</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Task_3_SortTriangles.Interfaces\Interfaces.csproj">
-      <Project>{e5b79f93-86c5-442c-9990-cac8c1803001}</Project>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Project>{881ea2ce-dce1-4560-9b16-55eb864a07b2}</Project>
       <Name>Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BLL\BL.csproj">
+      <Project>{41ee198d-0c53-40df-a5ef-297330e46736}</Project>
+      <Name>BL</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
