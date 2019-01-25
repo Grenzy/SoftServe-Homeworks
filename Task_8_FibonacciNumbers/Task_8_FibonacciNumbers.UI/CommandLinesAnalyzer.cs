@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task_8_FibonacciNumbers.UI
 {
-    class ArgumentsAnalyzer
+    class CommandLinesAnalyzer
     {
         public static void Parse(string[] args, out int lowerBound, out int upperBound)
         {

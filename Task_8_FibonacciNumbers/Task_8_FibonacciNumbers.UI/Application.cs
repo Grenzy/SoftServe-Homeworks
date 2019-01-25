@@ -16,7 +16,7 @@ namespace Task_8_FibonacciNumbers.UI
             int upperBound = 0;
             try
             {
-                ArgumentsAnalyzer.Parse(args, out lowerBound, out upperBound);
+                CommandLinesAnalyzer.Parse(args, out lowerBound, out upperBound);
             }
             catch(ArgumentOutOfRangeException e)
             {

@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task_7_NumberSequence
+namespace Task_7_NumberSequence.UI
 {
     class Program
     {
         static void Main(string[] args)
         {
+            new Application().Start(args);
         }
     }
 }
