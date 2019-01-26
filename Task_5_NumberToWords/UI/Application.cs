@@ -20,18 +20,19 @@ namespace Task_5_NumberToWords.UI
             {
                 CommandLinesAnalyzer.Parse(args, out number, out language);
             }
-            catch (ArgumentNullException ex)
-            {
-                UI.ShowError(ex.Message);
-                return;
-            }
-            catch (Exception)
+            catch (ArgumentNullException)
             {
                 UI.ShowHelp();
                 return;
             }
+            catch (Exception ex)
+            {
+                UI.ShowError(ex.Message);
+                UI.ShowHelp();
+                return;
+            }
+
             Interfaces.IConvertible convertToWords = new ConvertToWords();
-            
             string numberToWords = convertToWords.NumberToWords(number, new System.Globalization.CultureInfo(language));
             UI.ShowNumber(numberToWords);
         }
