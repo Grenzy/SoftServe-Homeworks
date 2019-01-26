@@ -7,7 +7,7 @@
     <ProjectGuid>{B65E48F0-B96D-4202-93C1-0DDEC8C0FC88}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Task_5_NumberToString.BL</RootNamespace>
+    <RootNamespace>Task_5_NumberToWords.BL</RootNamespace>
     <AssemblyName>BL</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

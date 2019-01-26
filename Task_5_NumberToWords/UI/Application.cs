@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task_5_NumberToString.UI
+namespace Task_5_NumberToWords.UI
 {
-    class Program
+    class Application
     {
-       static void Main(string[] args)
+        public void Start(string[] args)
         {
-            new Application().Start(args);
+
         }
     }
 }
