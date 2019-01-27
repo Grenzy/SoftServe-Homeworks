@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task_8_LuckyTickets.Inrerfaces
+namespace Presentation
 {
-    public interface ILuckyTicket
+    class Program
     {
+        static void Main(string[] args)
+        {
+        }
     }
 }
