@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Task_7_NumberSequence.BL;
 using Task_7_NumberSequence.Interfaces;
 
-namespace Task_7_NumberSequence.UI
+namespace Task_7_NumberSequence.Presentation
 {
     class Application
     {

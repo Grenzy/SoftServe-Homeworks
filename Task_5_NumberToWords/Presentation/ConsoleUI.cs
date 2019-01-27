@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Task_5_NumberToWords.Interfaces;
 
-namespace Task_5_NumberToWords.UI
+namespace Task_5_NumberToWords.Presentation
 {
     public class ConsoleUI: IUserInterface
     {

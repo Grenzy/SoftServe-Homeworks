@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{34473825-D7DB-408B-B81A-C5001A3C78F2}</ProjectGuid>
+    <ProjectGuid>{FA68D2B5-FBCE-4AE5-B68B-023E8B92D10A}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Task_5_NumberToWords.UI</RootNamespace>
-    <AssemblyName>UI</AssemblyName>
+    <RootNamespace>Task_8_LuckyTickets.Presentation</RootNamespace>
+    <AssemblyName>Presentation</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -44,25 +44,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
-    <Compile Include="CommandLinesAnalyzer.cs" />
     <Compile Include="ConsoleUI.cs" />
+    <Compile Include="FileParser.cs" />
+    <Compile Include="Interfaces\IUserInterface.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="packages.config" />
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BL\BL.csproj">
-      <Project>{b65e48f0-b96d-4202-93c1-0ddec8c0fc88}</Project>
+      <Project>{78bba528-ccda-42a4-a7a5-ac4a3ea026b2}</Project>
       <Name>BL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
-      <Project>{b3782acc-439f-430a-a011-8f804c6ec367}</Project>
-      <Name>Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

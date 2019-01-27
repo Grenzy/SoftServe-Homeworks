@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task_7_NumberSequence.UI
+namespace Task_7_NumberSequence.Presentation
 {
     public class CommandLinesAnalyzer
     {
