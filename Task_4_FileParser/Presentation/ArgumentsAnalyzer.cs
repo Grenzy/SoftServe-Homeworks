@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task_4_FindReplaceApp.BLL
+namespace Task_4_FileParser.Presentation
 {
     static class ArgumentsAnalyzer
     {
@@ -18,10 +18,12 @@ namespace Task_4_FindReplaceApp.BLL
                 pattern = string.Empty;
                 newValue = string.Empty;
                 ignoreCase = false;
+                return selectedFeature;
             }
+
             if (args.Length < 2)
             {
-                throw new ArgumentException("Invalid parameters");
+                throw new ArgumentException("Missing required arguments");
             }
 
             path = args[0];
@@ -31,36 +33,41 @@ namespace Task_4_FindReplaceApp.BLL
             {
                 selectedFeature = Feature.Find;
                 newValue = string.Empty;
-                if (args[2] == "-i")
+
+                if (args[2].Equals("-i", StringComparison.CurrentCultureIgnoreCase))
                 {
                     ignoreCase = true;
                 }
-                else if (args[2] == "-n")
+                else if (args[2].Equals("-n", StringComparison.CurrentCultureIgnoreCase))
                 {
                     ignoreCase = false;
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid parameters");
+                    throw new ArgumentException("Invalid key: " + args[2]);
                 }
             }
-            else
+            else if (args.Length == 4)
             {
                 selectedFeature = Feature.Replace;
                 newValue = args[2];
 
-                if (args[3] == "-i")
+                if (args[3].Equals("-i", StringComparison.CurrentCultureIgnoreCase))
                 {
                     ignoreCase = true;
                 }
-                else if (args[3] == "-n")
+                else if (args[3].Equals("-n", StringComparison.CurrentCultureIgnoreCase))
                 {
                     ignoreCase = false;
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid parameters");
+                    throw new ArgumentException("Invalid key: " + args[3]);
                 }
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException("Extra arguments");
             }
             return selectedFeature;
         }
