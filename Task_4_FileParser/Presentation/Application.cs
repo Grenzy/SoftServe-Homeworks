@@ -54,7 +54,7 @@ namespace Task_4_FileParser.Presentation
         {
             IFileReader fileReader = new FileReader(path);
             IStringSplitter stringSplitter = new StringSplitter();
-            SearchService searchService = new SearchService();
+            ISearchable searchService = new SearchService();
 
             List<SearchedItemModel> searchedItems = new List<SearchedItemModel>();
             SearchedItemModel searchedItem = null;
@@ -96,7 +96,7 @@ namespace Task_4_FileParser.Presentation
         {
             FileReader fileReader = new FileReader(path);
             FileWriter fileWriter = new FileWriter(path);
-            SearchService searchService = new SearchService();
+            ISearchable searchService = new SearchService();
             IStringSplitter stringSplitter = new StringSplitter();
             List<SearchedItemModel> searchedItems = new List<SearchedItemModel>();
             SearchedItemModel searchedItem = null;
