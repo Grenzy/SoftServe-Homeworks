@@ -49,7 +49,8 @@ IMPORTANT:
                 {
                     ColorWrite($"{searchedItems[i].PatternStringNumber - 1}. ",
                         ConsoleColor.Black, ConsoleColor.DarkYellow);
-                    Console.WriteLine($"{searchedItems[i].PriviousLine}");
+                    ColorWriteLine(searchedItems[i].PriviousLine, 
+                        ConsoleColor.Black, ConsoleColor.DarkGray);
                 }
 
                 ColorWrite($"{searchedItems[i].PatternStringNumber}. ",
@@ -72,7 +73,8 @@ IMPORTANT:
                 {
                     ColorWrite($"{searchedItems[i].PatternStringNumber + 1}. ",
                         ConsoleColor.Black, ConsoleColor.DarkYellow);
-                    Console.WriteLine($"{searchedItems[i].NextLine}");
+                    ColorWriteLine(searchedItems[i].NextLine,
+                        ConsoleColor.Black, ConsoleColor.DarkGray);
                 }
                 Console.Write(separator);
             }
@@ -90,7 +92,8 @@ IMPORTANT:
                 {
                     ColorWrite($"{searchedItems[i].PatternStringNumber - 1}. ",
                         ConsoleColor.Black, ConsoleColor.DarkYellow);
-                    Console.WriteLine(searchedItems[i].PriviousLine);
+                    ColorWriteLine(searchedItems[i].PriviousLine,
+              ConsoleColor.Black, ConsoleColor.DarkGray);
                 }
 
                 ColorWrite($"{searchedItems[i].PatternStringNumber}. ",
@@ -133,7 +136,8 @@ IMPORTANT:
                 {
                     ColorWrite($"{searchedItems[i].PatternStringNumber + 1}. ",
                         ConsoleColor.Black, ConsoleColor.DarkYellow);
-                    Console.WriteLine(searchedItems[i].NextLine);
+                    ColorWriteLine(searchedItems[i].NextLine,
+                ConsoleColor.Black, ConsoleColor.DarkGray);
                 }
                 Console.Write(separator);
             }

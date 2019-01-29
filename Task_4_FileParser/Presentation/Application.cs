@@ -61,10 +61,8 @@ namespace Task_4_FileParser.Presentation
             IFileReader fileReader = new FileReader(path);
             IStringSplitter stringSplitter = new StringSplitter();
             ISearchable searchService = new SearchService();
-
             List<SearchedItemModel> searchedItems = 
                 new List<SearchedItemModel>();
-
             SearchedItemModel searchedItem = null;
             string previousLine = null;
             string currentLine = null;
@@ -74,16 +72,9 @@ namespace Task_4_FileParser.Presentation
             do
             {
                 lineNumber++;
-                if (nextLine == null)
-                {
-                    currentLine = fileReader.ReadLine();
-                }
-                else
-                {
-                    currentLine = nextLine;
-                }
+                currentLine = GetCurrentLine(fileReader, nextLine);
 
-                int[] indexes = searchService.GetIndexes(currentLine, 
+                int[] indexes = searchService.GetIndexes(currentLine,
                     pattern, ignoreCase);
                 nextLine = fileReader.ReadLine();
 
@@ -107,8 +98,8 @@ namespace Task_4_FileParser.Presentation
         private ReplacedItemsCollectionModel Replace(string path, 
             string pattern, string newValue, bool ignoreCase)
         {
-            FileReader fileReader = new FileReader(path);
-            FileWriter fileWriter = new FileWriter(path);
+            IFileReader fileReader = new FileReader(path);
+            IFileWriter fileWriter = new FileWriter(path);
             ISearchable searchService = new SearchService();
             IStringSplitter stringSplitter = new StringSplitter();
             List<SearchedItemModel> searchedItems = 
@@ -122,15 +113,7 @@ namespace Task_4_FileParser.Presentation
             do
             {
                 lineNumber++;
-                if (nextLine == null)
-                {
-                    currentLine = fileReader.ReadLine();
-                }
-                else
-                {
-                    currentLine = nextLine;
-                }
-
+                currentLine = GetCurrentLine(fileReader, nextLine);
                 int[] indexes = searchService.GetIndexes(currentLine,
                     pattern, ignoreCase);
                 nextLine = fileReader.ReadLine();
@@ -177,5 +160,21 @@ namespace Task_4_FileParser.Presentation
             }
             return stringBuilder.ToString();
         }
+
+        private static string GetCurrentLine(IFileReader fileReader, string nextLine)
+        {
+            string currentLine;
+            if (nextLine == null)
+            {
+                currentLine = fileReader.ReadLine();
+            }
+            else
+            {
+                currentLine = nextLine;
+            }
+
+            return currentLine;
+        }
+
     }
 }
