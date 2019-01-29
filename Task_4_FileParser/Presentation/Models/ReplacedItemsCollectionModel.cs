@@ -12,7 +12,8 @@ namespace Task_4_FileParser.Presentation.Models
         public int Count { get; set; }
         public string NewValue { get; set; }
 
-        public ReplacedItemsCollectionModel(SearchedItemModel[] searchedItems, int count, string newValue)
+        public ReplacedItemsCollectionModel(SearchedItemModel[] searchedItems,
+            int count, string newValue)
         {
             SearchedItems = searchedItems;
             Count = count;

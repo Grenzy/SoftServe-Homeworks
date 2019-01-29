@@ -8,7 +8,8 @@ namespace Task_4_FileParser.Presentation.Models
 {
     public class SearchedItemModel
     {
-        public SearchedItemModel(string[] partsOfLine, int patternStringNumber, string priviousLine, string nextLine)
+        public SearchedItemModel(string[] partsOfLine, int patternStringNumber,
+            string priviousLine, string nextLine)
         {
             PartsOfLine = partsOfLine;
             PatternStringNumber = patternStringNumber;

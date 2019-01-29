@@ -12,13 +12,14 @@ namespace Task_4_FileParser.BL
     {
         private StreamWriter streamWriter;
         private string path;
-        private string temporaryPath;
+        private string tempPath;
         bool disposed = false;
 
         public FileWriter(string path)
         {
-            temporaryPath = Guid.NewGuid().ToString();
-            streamWriter = new StreamWriter(temporaryPath);
+            tempPath = Path.Combine(Path.GetTempPath(),
+                Path.GetRandomFileName());
+            streamWriter = new StreamWriter(tempPath);
             this.path = path;
         }
 
@@ -30,7 +31,7 @@ namespace Task_4_FileParser.BL
         public void Close()
         {
             Dispose();
-            File.Replace(temporaryPath, path, null);
+            File.Replace(tempPath, path, null);
         }
 
         public void Dispose()

@@ -9,8 +9,10 @@ namespace Task_4_FileParser.Presentation.Interfaces
 {
     interface IUserInterface
     {
-        void ShowSearchedItems(IList<SearchedItemModel> searchedItems, int Count);
-        void ShowReplacedItems(SearchedItemModel[] searchedItems, string newValue, int Count);
+        void ShowSearchedItems(IList<SearchedItemModel> searchedItems,
+            int Count);
+        void ShowReplacedItems(SearchedItemModel[] searchedItems,
+            string newValue, int Count);
         void ShowHelp();
         void ShowError(string message);
     }

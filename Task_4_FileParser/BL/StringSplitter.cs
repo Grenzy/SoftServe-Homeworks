@@ -9,7 +9,8 @@ namespace Task_4_FileParser.BL
 {
     public class StringSplitter : IStringSplitter
     {
-        public string[] SplitByIndexes(string source, int[] indexes, int patternLength)
+        public string[] SplitByIndexes(string source, int[] indexes,
+            int patternLength)
         {
             List<string> parts = new List<string>();
             int previousIndex = 0;
@@ -17,7 +18,8 @@ namespace Task_4_FileParser.BL
             string pattern = null;
             foreach (int index in indexes)
             {
-                leftPart = source.Substring(previousIndex, index - previousIndex);
+                leftPart = source.Substring(previousIndex, 
+                    index - previousIndex);
                 parts.Add(leftPart);
                 pattern = source.Substring(index, patternLength);
                 parts.Add(pattern);

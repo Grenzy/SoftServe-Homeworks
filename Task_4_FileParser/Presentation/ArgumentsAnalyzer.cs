@@ -8,7 +8,13 @@ namespace Task_4_FileParser.Presentation
 {
     static class ArgumentsAnalyzer
     {
-        public static Feature ParseArgs(string[] args, out string path, out string pattern, out string newValue, out bool ignoreCase)
+        private const int NUMBER_FOR_SEARCH = 3;
+        private const int SEARCH_KEY_OPTION = 2;
+        private const int NUMBER_FOR_REPLACE = 4;
+        private const int REPLACE_KEY_OPTION = 3;
+        private const int NEW_REPLACING_VALUE = 2;
+        public static Feature ParseArgs(string[] args, out string path,
+            out string pattern, out string newValue, out bool ignoreCase)
         {
             Feature selectedFeature;
             if (args.Length == 0)
@@ -21,7 +27,7 @@ namespace Task_4_FileParser.Presentation
                 return selectedFeature;
             }
 
-            if (args.Length < 2)
+            if (args.Length < NUMBER_FOR_SEARCH)
             {
                 throw new ArgumentException("Missing required arguments");
             }
@@ -29,40 +35,46 @@ namespace Task_4_FileParser.Presentation
             path = args[0];
             pattern = args[1];
 
-            if (args.Length == 3)
+            if (args.Length == NUMBER_FOR_SEARCH)
             {
                 selectedFeature = Feature.Find;
                 newValue = string.Empty;
 
-                if (args[2].Equals("-i", StringComparison.CurrentCultureIgnoreCase))
+                if (args[SEARCH_KEY_OPTION].Equals("-i", 
+                    StringComparison.CurrentCultureIgnoreCase))
                 {
                     ignoreCase = true;
                 }
-                else if (args[2].Equals("-n", StringComparison.CurrentCultureIgnoreCase))
+                else if (args[SEARCH_KEY_OPTION].Equals("-n", 
+                    StringComparison.CurrentCultureIgnoreCase))
                 {
                     ignoreCase = false;
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid key: " + args[2]);
+                    throw new ArgumentException("Invalid key: " + 
+                        args[SEARCH_KEY_OPTION]);
                 }
             }
-            else if (args.Length == 4)
+            else if (args.Length == NUMBER_FOR_REPLACE)
             {
                 selectedFeature = Feature.Replace;
-                newValue = args[2];
+                newValue = args[NEW_REPLACING_VALUE];
 
-                if (args[3].Equals("-i", StringComparison.CurrentCultureIgnoreCase))
+                if (args[REPLACE_KEY_OPTION].Equals("-i", 
+                    StringComparison.CurrentCultureIgnoreCase))
                 {
                     ignoreCase = true;
                 }
-                else if (args[3].Equals("-n", StringComparison.CurrentCultureIgnoreCase))
+                else if (args[REPLACE_KEY_OPTION].Equals("-n", 
+                    StringComparison.CurrentCultureIgnoreCase))
                 {
                     ignoreCase = false;
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid key: " + args[3]);
+                    throw new ArgumentException("Invalid key: " +
+                        args[REPLACE_KEY_OPTION]);
                 }
             }
             else

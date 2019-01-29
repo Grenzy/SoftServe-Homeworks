@@ -8,101 +8,10 @@ using Task_4_FileParser.Presentation.Models;
 
 namespace Task_4_FileParser.Presentation
 {
-    public class ConsoleUI: IUserInterface
+    public class ConsoleUI : IUserInterface
     {
-        private const int CONSOLE_LENGTH = 120;
-        private static readonly string separator = new String('*', CONSOLE_LENGTH);
-        public void ShowSearchedItems(IList<SearchedItemModel> searchedItems, int Count)
-        {
-            for (int i = 0; i < searchedItems.Count; i++)
-            {
-                if (searchedItems[i].PriviousLine != null)
-                {
-                    ColorWrite($"{searchedItems[i].PatternStringNumber - 1}. ", ConsoleColor.Black, ConsoleColor.DarkYellow);
-                    Console.WriteLine($"{searchedItems[i].PriviousLine}");
-                }
-                ColorWrite($"{searchedItems[i].PatternStringNumber}. ", ConsoleColor.Black, ConsoleColor.DarkYellow);
-
-                for (int j = 0; j < searchedItems[i].PartsOfLine.Length; j++)
-                {
-                    if (j % 2 == 1)
-                    {
-                        ColorWrite(searchedItems[i].PartsOfLine[j], ConsoleColor.Black, ConsoleColor.Red);
-                    }
-                    else
-                    {
-                        Console.Write(searchedItems[i].PartsOfLine[j]);
-                    }
-                }
-                Console.WriteLine();
-                if (searchedItems[i].NextLine != null)
-                {
-                    ColorWrite($"{searchedItems[i].PatternStringNumber + 1}. ", ConsoleColor.Black, ConsoleColor.DarkYellow);
-                    Console.WriteLine($"{searchedItems[i].NextLine}");
-                }
-                Console.Write(separator);
-            }
-
-            string numberOfEntries = Environment.NewLine + "Number of line entries in a text file: {0}";
-
-            Console.WriteLine(numberOfEntries, Count);
-        }
-        public void ShowReplacedItems(SearchedItemModel[] searchedItems, string newValue, int Count)
-        {
-            for (int i = 0; i < searchedItems.Length; i++)
-            {
-                if (searchedItems[i].PriviousLine != null)
-                {
-                    ColorWrite($"{searchedItems[i].PatternStringNumber - 1}. ", ConsoleColor.Black, ConsoleColor.DarkYellow);
-                    Console.WriteLine(searchedItems[i].PriviousLine);
-                }
-
-                ColorWrite($"{searchedItems[i].PatternStringNumber}. ", ConsoleColor.Black, ConsoleColor.DarkYellow);
-
-                for (int j = 0; j < searchedItems[i].PartsOfLine.Length; j++)
-                {
-                    if (j % 2 == 1)
-                    {
-                        ColorWrite(searchedItems[i].PartsOfLine[j], ConsoleColor.Red, ConsoleColor.Blue);
-                    }
-                    else
-                    {
-                        ColorWrite(searchedItems[i].PartsOfLine[j] , ConsoleColor.Red, ConsoleColor.White);
-                    }
-                }
-
-                Console.WriteLine();
-                ColorWrite($"{searchedItems[i].PatternStringNumber}. ", ConsoleColor.Black, ConsoleColor.DarkYellow);
-                for (int j = 0; j < searchedItems[i].PartsOfLine.Length; j++)
-                {
-                    if (j % 2 == 1)
-                    {
-                        ColorWrite(newValue, ConsoleColor.Green, ConsoleColor.DarkBlue);
-                    }
-                    else
-                    {
-                        ColorWrite(searchedItems[i].PartsOfLine[j], ConsoleColor.Green, ConsoleColor.White);
-                    }
-                }
-
-                Console.WriteLine();
-
-                if (searchedItems[i].NextLine != null)
-                {
-                    ColorWrite($"{searchedItems[i].PatternStringNumber + 1}. ", ConsoleColor.Black, ConsoleColor.DarkYellow);
-                    Console.WriteLine(searchedItems[i].NextLine);
-                }
-                Console.Write(separator);
-            }
-
-            string NumberOfReplacements = Environment.NewLine + "Number of replacements: {0}";
-
-            Console.WriteLine(NumberOfReplacements, Count);
-        }
-        public void ShowHelp()
-        {
-            string message =
-                @"USAGE: 
+        private const string HELP_MESSAGE =
+@"USAGE: 
 Search option: 
     path pattern -n|-i
 WHERE
@@ -122,21 +31,136 @@ WHERE
 
 IMPORTANT: 
     All arguments are requred";
+        private const string NUMBER_OF_ENTRIES = "{0}Number of line entries " +
+            "in a text file: {1}";
+        private const string NUMBER_OF_REPLACEMENTS = "{0}Number of " +
+            "replacements: {1}";
+        private const string ERROR_MESSAGE = "Error: ";
+        private const int CONSOLE_LENGTH = 120;
+        private static readonly string separator =
+            new String('*', CONSOLE_LENGTH);
 
-            Console.WriteLine(message);
+        public void ShowSearchedItems(IList<SearchedItemModel> searchedItems,
+            int Count)
+        {
+            for (int i = 0; i < searchedItems.Count; i++)
+            {
+                if (searchedItems[i].PriviousLine != null)
+                {
+                    ColorWrite($"{searchedItems[i].PatternStringNumber - 1}. ",
+                        ConsoleColor.Black, ConsoleColor.DarkYellow);
+                    Console.WriteLine($"{searchedItems[i].PriviousLine}");
+                }
+
+                ColorWrite($"{searchedItems[i].PatternStringNumber}. ",
+                    ConsoleColor.Black, ConsoleColor.DarkYellow);
+
+                for (int j = 0; j < searchedItems[i].PartsOfLine.Length; j++)
+                {
+                    if (j % 2 == 1)
+                    {
+                        ColorWrite(searchedItems[i].PartsOfLine[j],
+                            ConsoleColor.Black, ConsoleColor.Red);
+                    }
+                    else
+                    {
+                        Console.Write(searchedItems[i].PartsOfLine[j]);
+                    }
+                }
+                Console.WriteLine();
+                if (searchedItems[i].NextLine != null)
+                {
+                    ColorWrite($"{searchedItems[i].PatternStringNumber + 1}. ",
+                        ConsoleColor.Black, ConsoleColor.DarkYellow);
+                    Console.WriteLine($"{searchedItems[i].NextLine}");
+                }
+                Console.Write(separator);
+            }
+
+
+
+            Console.WriteLine(NUMBER_OF_ENTRIES, Environment.NewLine, Count);
+        }
+        public void ShowReplacedItems(SearchedItemModel[] searchedItems,
+            string newValue, int Count)
+        {
+            for (int i = 0; i < searchedItems.Length; i++)
+            {
+                if (searchedItems[i].PriviousLine != null)
+                {
+                    ColorWrite($"{searchedItems[i].PatternStringNumber - 1}. ",
+                        ConsoleColor.Black, ConsoleColor.DarkYellow);
+                    Console.WriteLine(searchedItems[i].PriviousLine);
+                }
+
+                ColorWrite($"{searchedItems[i].PatternStringNumber}. ",
+                    ConsoleColor.Black, ConsoleColor.DarkYellow);
+
+                for (int j = 0; j < searchedItems[i].PartsOfLine.Length; j++)
+                {
+                    if (j % 2 == 1)
+                    {
+                        ColorWrite(searchedItems[i].PartsOfLine[j],
+                            ConsoleColor.Red, ConsoleColor.Blue);
+                    }
+                    else
+                    {
+                        ColorWrite(searchedItems[i].PartsOfLine[j],
+                            ConsoleColor.Red, ConsoleColor.White);
+                    }
+                }
+
+                Console.WriteLine();
+                ColorWrite($"{searchedItems[i].PatternStringNumber}. ",
+                    ConsoleColor.Black, ConsoleColor.DarkYellow);
+                for (int j = 0; j < searchedItems[i].PartsOfLine.Length; j++)
+                {
+                    if (j % 2 == 1)
+                    {
+                        ColorWrite(newValue, ConsoleColor.Green,
+                            ConsoleColor.DarkBlue);
+                    }
+                    else
+                    {
+                        ColorWrite(searchedItems[i].PartsOfLine[j],
+                            ConsoleColor.Green, ConsoleColor.White);
+                    }
+                }
+
+                Console.WriteLine();
+
+                if (searchedItems[i].NextLine != null)
+                {
+                    ColorWrite($"{searchedItems[i].PatternStringNumber + 1}. ",
+                        ConsoleColor.Black, ConsoleColor.DarkYellow);
+                    Console.WriteLine(searchedItems[i].NextLine);
+                }
+                Console.Write(separator);
+            }
+
+            Console.WriteLine(NUMBER_OF_REPLACEMENTS,
+                Environment.NewLine, Count);
+        }
+        public void ShowHelp()
+        {
+
+
+            Console.WriteLine(HELP_MESSAGE);
         }
         public void ShowError(string message)
         {
-            Console.WriteLine("Error:" + message);
+            Console.WriteLine(ERROR_MESSAGE + message);
         }
-        private static void ColorWriteLine(string text, ConsoleColor backgraubdColor, ConsoleColor foregroundColor)
+        private static void ColorWriteLine(string text,
+            ConsoleColor backgraubdColor, ConsoleColor foregroundColor)
         {
             Console.BackgroundColor = backgraubdColor;
             Console.ForegroundColor = foregroundColor;
             Console.WriteLine(text);
             Console.ResetColor();
         }
-        private static void ColorWrite(string text, ConsoleColor backgraubdColor, ConsoleColor foregroundColor)
+        private static void ColorWrite(string text,
+            ConsoleColor backgraubdColor, ConsoleColor foregroundColor)
         {
             Console.BackgroundColor = backgraubdColor;
             Console.ForegroundColor = foregroundColor;

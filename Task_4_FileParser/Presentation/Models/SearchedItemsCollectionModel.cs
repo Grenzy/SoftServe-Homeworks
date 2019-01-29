@@ -10,7 +10,8 @@ namespace Task_4_FileParser.Presentation.Models
     {
         public SearchedItemModel[] SearchedItems { get; set; }
         public int Count { get; set; }
-        public SearchedItemsCollectionModel(SearchedItemModel[] searchedItems, int count)
+        public SearchedItemsCollectionModel(SearchedItemModel[] searchedItems,
+            int count)
         {
             SearchedItems = searchedItems;
             Count = count;
