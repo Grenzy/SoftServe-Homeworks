@@ -49,6 +49,7 @@
     <Compile Include="Application.cs" />
     <Compile Include="CommandLinesAnalyzer.cs" />
     <Compile Include="ConsoleUI.cs" />
+    <Compile Include="Interfaces\IUserInterface.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -56,11 +57,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
-      <Project>{881ea2ce-dce1-4560-9b16-55eb864a07b2}</Project>
-      <Name>Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BLL\BL.csproj">
+    <ProjectReference Include="..\BL\BL.csproj">
       <Project>{41ee198d-0c53-40df-a5ef-297330e46736}</Project>
       <Name>BL</Name>
     </ProjectReference>

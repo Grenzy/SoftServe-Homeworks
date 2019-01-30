@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Task_8_FibonacciNumbers.UI
+﻿namespace Task_8_FibonacciNumbers.Presentation
 {
     public class Program
     {

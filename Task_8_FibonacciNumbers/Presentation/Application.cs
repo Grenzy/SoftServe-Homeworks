@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Task_8_FibonacciNumbers.Interfaces;
 using Task_8_FibonacciNumbers.BL;
+using Task_8_FibonacciNumbers.BL.Interfaces;
+using Task_8_FibonacciNumbers.Presentation.Interfaces;
 
-namespace Task_8_FibonacciNumbers.UI
+namespace Task_8_FibonacciNumbers.Presentation
 {
     class Application
     {
@@ -14,41 +12,38 @@ namespace Task_8_FibonacciNumbers.UI
         {
             int lowerBound = 0;
             int upperBound = 0;
+            IUserInterface UI = new ConsoleUI();
+
             try
             {
                 CommandLinesAnalyzer.Parse(args, out lowerBound, out upperBound);
             }
-            catch(ArgumentOutOfRangeException e)
+            catch (ArgumentException e)
             {
-                ConsoleUI.ShowError(e.Message);
-                ConsoleUI.ShowHelp();
-            }
-            catch(ArgumentException e)
-            {
-                ConsoleUI.ShowError(e.Message);
-                ConsoleUI.ShowHelp();
-            }
+                UI.ShowError(e.Message);
+                UI.ShowHelp();
+            }       
             catch(FormatException e)
             {
-                ConsoleUI.ShowError(e.Message);
-                ConsoleUI.ShowHelp();
+                UI.ShowError(e.Message);
+                UI.ShowHelp();
             }
             catch(OverflowException e)
             {
-                ConsoleUI.ShowError(e.Message);
-                ConsoleUI.ShowHelp();
+                UI.ShowError(e.Message);
+                UI.ShowHelp();
             }
 
-            IRange fibonacciNumbers = new FibonacciService();
-            int[] numbers = fibonacciNumbers.GetRange(lowerBound, upperBound);
+            IRange fibonacciRange = new FibonacciRange();
+            int[] numbers = fibonacciRange.GetRange(lowerBound, upperBound);
 
             if (numbers.Any())
             {
-                ConsoleUI.ShowRange(numbers);
+                UI.ShowRange(numbers);
             }
             else
             {
-                ConsoleUI.ShowNumbersNotFoundMessage();
+                UI.ShowNumbersNotFoundMessage();
             }
          
         }

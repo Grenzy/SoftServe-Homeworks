@@ -46,14 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FibonacciNumbers.cs" />
-    <Compile Include="FibonacciService.cs" />
+    <Compile Include="FibonacciRange.cs" />
+    <Compile Include="Interfaces\IRange.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
-      <Project>{881ea2ce-dce1-4560-9b16-55eb864a07b2}</Project>
-      <Name>Interfaces</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

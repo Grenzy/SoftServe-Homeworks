@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Task_8_FibonacciNumbers.BL
+﻿namespace Task_8_FibonacciNumbers.BL
 {
-    class FibonacciNumbers
+    public class FibonacciNumbers
     {
         private int firstNumber;
         private int secondNumber;
@@ -18,7 +12,7 @@ namespace Task_8_FibonacciNumbers.BL
             secondNumber = 1;
             while (secondNumber < number)
             {
-                tempValue = firstNumber + secondNumber;
+                tempValue = checked(firstNumber + secondNumber);
                 firstNumber = secondNumber;
                 secondNumber = tempValue;
             }
@@ -33,6 +27,5 @@ namespace Task_8_FibonacciNumbers.BL
             secondNumber = sum;
             return sum;
         }
-     
     }
 }

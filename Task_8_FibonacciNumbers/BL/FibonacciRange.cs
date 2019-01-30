@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Task_8_FibonacciNumbers.Interfaces;
+﻿using System.Collections.Generic;
+using Task_8_FibonacciNumbers.BL.Interfaces;
 
 namespace Task_8_FibonacciNumbers.BL
 {
-    public class FibonacciService : IRange
+    public class FibonacciRange : IRange
     {
 
         public int[] GetRange(int lowerBound, int upperBound)

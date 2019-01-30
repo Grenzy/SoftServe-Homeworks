@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Task_8_FibonacciNumbers.UI
+namespace Task_8_FibonacciNumbers.Presentation
 {
-    class CommandLinesAnalyzer
+    public class CommandLinesAnalyzer
     {
         public static void Parse(string[] args, out int lowerBound, out int upperBound)
         {
@@ -31,7 +27,7 @@ namespace Task_8_FibonacciNumbers.UI
             }
             catch (OverflowException e)
             {
-                throw new FormatException($"First argument must be a number between -2147483648 and 2147483647", e);
+                throw new OverflowException($"First argument must be a number between -2147483648 and 2147483647", e);
             }
             try
             {
@@ -43,10 +39,10 @@ namespace Task_8_FibonacciNumbers.UI
             }
             catch (OverflowException e)
             {
-                throw new FormatException($"Second argument must be a number between -2147483648 and 2147483647", e);
+                throw new OverflowException($"Second argument must be a number between -2147483648 and 2147483647", e);
             }
 
-            if (lowerBound >= upperBound)
+            if (lowerBound > upperBound)
             {
                 throw new ArgumentException("The upper bound must be greater than the lower");
             }
