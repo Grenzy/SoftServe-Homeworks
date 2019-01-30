@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task_4_FileParser.Presentation
 {
-    static class ArgumentsAnalyzer
+    public static class CommandLinesAnalyzer
     {
         private const int NUMBER_FOR_SEARCH = 3;
         private const int SEARCH_KEY_OPTION = 2;

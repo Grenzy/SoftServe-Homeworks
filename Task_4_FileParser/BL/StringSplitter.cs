@@ -12,13 +12,22 @@ namespace Task_4_FileParser.BL
         public string[] SplitByIndexes(string source, int[] indexes,
             int patternLength)
         {
+            if (source == null)
+            {
+                throw new ArgumentNullException("source");
+            }
+            if (indexes == null)
+            {
+                throw new ArgumentNullException("indexes");
+            }
+
             List<string> parts = new List<string>();
             int previousIndex = 0;
             string leftPart = null;
             string pattern = null;
             foreach (int index in indexes)
             {
-                leftPart = source.Substring(previousIndex, 
+                leftPart = source.Substring(previousIndex,
                     index - previousIndex);
                 parts.Add(leftPart);
                 pattern = source.Substring(index, patternLength);
@@ -26,7 +35,7 @@ namespace Task_4_FileParser.BL
                 previousIndex = index + patternLength;
             }
 
-            if (previousIndex != patternLength - 1)
+            if (previousIndex < source.Length - 1)
             {
                 parts.Add(source.Substring(previousIndex));
             }

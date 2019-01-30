@@ -4,10 +4,19 @@ using Task_4_FileParser.BL.Interfaces;
 
 namespace Task_4_FileParser.BL
 {
-    public class SearchService: ISearchable
+    public class IndexFinder: ISearchable
     {
         public int[] GetIndexes(string source, string pattern, bool IgnoreCase)
         {
+            if (source == null)
+            {
+                throw new ArgumentNullException("source");
+            }
+            if(pattern == null)
+            {
+                throw new ArgumentNullException("pattern");
+            }
+
             StringComparison comparison;
             if (IgnoreCase)
             {

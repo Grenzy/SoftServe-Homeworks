@@ -25,7 +25,7 @@ namespace Task_4_FileParser.Presentation
 
             try
             {
-                selectedFeature = ArgumentsAnalyzer.ParseArgs(args, out path,
+                selectedFeature = CommandLinesAnalyzer.ParseArgs(args, out path,
                     out pattern, out newValue, out ignoreCase);
             }
             catch (ArgumentException ex)
@@ -60,7 +60,7 @@ namespace Task_4_FileParser.Presentation
         {
             IFileReader fileReader = new FileReader(path);
             IStringSplitter stringSplitter = new StringSplitter();
-            ISearchable searchService = new SearchService();
+            ISearchable searchService = new IndexFinder();
             List<SearchedItemModel> searchedItems = 
                 new List<SearchedItemModel>();
             SearchedItemModel searchedItem = null;
@@ -100,7 +100,7 @@ namespace Task_4_FileParser.Presentation
         {
             IFileReader fileReader = new FileReader(path);
             IFileWriter fileWriter = new FileWriter(path);
-            ISearchable searchService = new SearchService();
+            ISearchable searchService = new IndexFinder();
             IStringSplitter stringSplitter = new StringSplitter();
             List<SearchedItemModel> searchedItems = 
                 new List<SearchedItemModel>();
