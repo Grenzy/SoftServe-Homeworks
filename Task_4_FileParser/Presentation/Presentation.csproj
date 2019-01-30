@@ -50,6 +50,8 @@
     <Compile Include="CommandLinesAnalyzer.cs" />
     <Compile Include="ConsoleUI.cs" />
     <Compile Include="Feature.cs" />
+    <Compile Include="FileParser.cs" />
+    <Compile Include="Interfaces\IFileParser.cs" />
     <Compile Include="Interfaces\IUserInterface.cs" />
     <Compile Include="Models\ReplacedItemsCollectionModel.cs" />
     <Compile Include="Models\SearchedItemModel.cs" />

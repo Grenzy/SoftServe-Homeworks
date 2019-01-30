@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task_4_FileParser.BL.Interfaces
 {
-    public interface ISearchable
+    public interface IFinder
     {
         int[] GetIndexes(string source, string pattern, bool IgnoreCase);
     }

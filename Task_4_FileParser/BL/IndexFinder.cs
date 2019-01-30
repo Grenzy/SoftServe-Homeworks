@@ -4,7 +4,7 @@ using Task_4_FileParser.BL.Interfaces;
 
 namespace Task_4_FileParser.BL
 {
-    public class IndexFinder: ISearchable
+    public class IndexFinder: IFinder
     {
         public int[] GetIndexes(string source, string pattern, bool IgnoreCase)
         {

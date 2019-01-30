@@ -48,7 +48,7 @@
     <Compile Include="Interfaces\IFileReader.cs" />
     <Compile Include="FileReader.cs" />
     <Compile Include="Interfaces\IFileWriter.cs" />
-    <Compile Include="Interfaces\ISearchable.cs" />
+    <Compile Include="Interfaces\IFinder.cs" />
     <Compile Include="Interfaces\IStringSplitter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IndexFinder.cs" />

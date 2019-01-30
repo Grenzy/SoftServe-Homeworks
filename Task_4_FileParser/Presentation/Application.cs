@@ -17,6 +17,7 @@ namespace Task_4_FileParser.Presentation
         {
             IUserInterface UI = new ConsoleUI();
 
+
             Feature selectedFeature;
             string path;
             string pattern;
@@ -34,6 +35,14 @@ namespace Task_4_FileParser.Presentation
                 UI.ShowHelp();
                 return;
             }
+            if (!File.Exists(path))
+            {
+                UI.ShowError("File is not exist");
+                return;
+            }
+
+            FileParser fileParser = new FileParser(new IndexFinder(),
+                new StringSplitter());
 
             switch (selectedFeature)
             {
@@ -41,140 +50,51 @@ namespace Task_4_FileParser.Presentation
                     UI.ShowHelp();
                     break;
                 case Feature.Find:
-                    SearchedItemsCollectionModel searchedItemsCollection =
-                        Find(path, pattern, ignoreCase);
-                    UI.ShowSearchedItems(searchedItemsCollection.SearchedItems,
-                        searchedItemsCollection.Count);
+                    Find(UI, path, pattern, ignoreCase, fileParser);
                     break;
                 case Feature.Replace:
-                    ReplacedItemsCollectionModel replacedItems =
-                        Replace(path, pattern, newValue, ignoreCase);
-                    UI.ShowReplacedItems(replacedItems.SearchedItems,
-                        replacedItems.NewValue, replacedItems.Count);
+                    Replace(UI, path, pattern, newValue, ignoreCase, fileParser);
                     break;
             }
         }
 
-        private SearchedItemsCollectionModel Find(string path,
-            string pattern, bool ignoreCase)
+        private void Find(IUserInterface UI, string path, string pattern,
+            bool ignoreCase, FileParser fileParser)
         {
-            IFileReader fileReader = new FileReader(path);
-            IStringSplitter stringSplitter = new StringSplitter();
-            ISearchable searchService = new IndexFinder();
-            List<SearchedItemModel> searchedItems = 
-                new List<SearchedItemModel>();
-            SearchedItemModel searchedItem = null;
-            string previousLine = null;
-            string currentLine = null;
-            string nextLine = null;
-            int lineNumber = 0;
-            int countOfEntries = 0;
-            do
+            SearchedItemsCollectionModel searchedItemsCollection;
+            try
             {
-                lineNumber++;
-                currentLine = GetCurrentLine(fileReader, nextLine);
-
-                int[] indexes = searchService.GetIndexes(currentLine,
-                    pattern, ignoreCase);
-                nextLine = fileReader.ReadLine();
-
-                if (indexes.Length != 0)
-                {
-                    countOfEntries += indexes.Length;
-                    string[] partsOfLine = stringSplitter.SplitByIndexes(
-                        currentLine, indexes, pattern.Length);
-                    searchedItem = new SearchedItemModel(partsOfLine,
-                        lineNumber, previousLine, nextLine);
-                    searchedItems.Add(searchedItem);
-                }
-                previousLine = currentLine;
-
-            } while (nextLine != null);
-
-            return new SearchedItemsCollectionModel(searchedItems.ToArray(),
-                countOfEntries);
-        }
-
-        private ReplacedItemsCollectionModel Replace(string path, 
-            string pattern, string newValue, bool ignoreCase)
-        {
-            IFileReader fileReader = new FileReader(path);
-            IFileWriter fileWriter = new FileWriter(path);
-            ISearchable searchService = new IndexFinder();
-            IStringSplitter stringSplitter = new StringSplitter();
-            List<SearchedItemModel> searchedItems = 
-                new List<SearchedItemModel>();
-            SearchedItemModel searchedItem = null;
-            string previousLine = null;
-            string currentLine = null;
-            string nextLine = null;
-            int lineNumber = 0;
-            int countOfEntries = 0;
-            do
-            {
-                lineNumber++;
-                currentLine = GetCurrentLine(fileReader, nextLine);
-                int[] indexes = searchService.GetIndexes(currentLine,
-                    pattern, ignoreCase);
-                nextLine = fileReader.ReadLine();
-
-                if (indexes.Length != 0)
-                {
-                    countOfEntries += indexes.Length;
-                    string[] partsOfLine = stringSplitter.SplitByIndexes(
-                        currentLine, indexes, pattern.Length);
-                    searchedItem = new SearchedItemModel(partsOfLine,
-                        lineNumber, previousLine, nextLine);
-                    searchedItems.Add(searchedItem);
-                    string replacedLine = CreateReplacedLine(partsOfLine,
-                        newValue);
-                    fileWriter.WriteTemporary(replacedLine);
-                }
-                else
-                {
-                    fileWriter.WriteTemporary(currentLine);
-                }
-
-                previousLine = currentLine;
-
-            } while (nextLine != null);
-            fileReader.Close();
-            fileWriter.Close();
-            return new ReplacedItemsCollectionModel(searchedItems.ToArray(),
-                countOfEntries, newValue);
-        }
-
-        private string CreateReplacedLine(string[] parts, string newValue)
-        {
-            StringBuilder stringBuilder = new StringBuilder();
-            for (int index = 0; index < parts.Length; index++)
-            {
-                if (index % 2 == 0)
-                {
-                    stringBuilder.Append(parts[index]);
-                }
-                else
-                {
-                    stringBuilder.Append(newValue);
-                }
+                searchedItemsCollection =
+                fileParser.Find(path, pattern, ignoreCase, new FileReader(path),
+                new FileWriter(path));
             }
-            return stringBuilder.ToString();
-        }
-
-        private static string GetCurrentLine(IFileReader fileReader, string nextLine)
-        {
-            string currentLine;
-            if (nextLine == null)
+            catch (IOException ex)
             {
-                currentLine = fileReader.ReadLine();
-            }
-            else
-            {
-                currentLine = nextLine;
+                UI.ShowError(ex.Message);
+                return;
             }
 
-            return currentLine;
+            UI.ShowSearchedItems(searchedItemsCollection.SearchedItems,
+                searchedItemsCollection.Count);
         }
 
+        private void Replace(IUserInterface UI, string path, string pattern,
+            string newValue, bool ignoreCase, FileParser fileParser)
+        {
+            ReplacedItemsCollectionModel replacedItems;
+            try
+            {
+                replacedItems = fileParser.Replace(path, pattern, newValue,
+                    ignoreCase, new FileReader(path), new FileWriter(path));
+            }
+            catch (IOException ex)
+            {
+                UI.ShowError(ex.Message);
+                return;
+            }
+
+            UI.ShowReplacedItems(replacedItems.SearchedItems,
+                replacedItems.NewValue, replacedItems.Count);
+        }
     }
 }

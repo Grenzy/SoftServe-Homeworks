@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task_4_FileParser.Presentation.Models
 {
-    class SearchedItemsCollectionModel
+    public class SearchedItemsCollectionModel
     {
         public SearchedItemModel[] SearchedItems { get; set; }
         public int Count { get; set; }
