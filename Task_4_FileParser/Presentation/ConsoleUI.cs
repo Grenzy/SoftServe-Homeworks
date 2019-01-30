@@ -104,12 +104,12 @@ IMPORTANT:
                     if (j % 2 == 1)
                     {
                         ColorWrite(searchedItems[i].PartsOfLine[j],
-                            ConsoleColor.Red, ConsoleColor.Blue);
+                            ConsoleColor.Red, ConsoleColor.White);
                     }
                     else
                     {
                         ColorWrite(searchedItems[i].PartsOfLine[j],
-                            ConsoleColor.Red, ConsoleColor.White);
+                            ConsoleColor.Red, ConsoleColor.DarkGray);
                     }
                 }
 
@@ -121,12 +121,12 @@ IMPORTANT:
                     if (j % 2 == 1)
                     {
                         ColorWrite(newValue, ConsoleColor.Green,
-                            ConsoleColor.DarkBlue);
+                            ConsoleColor.White);
                     }
                     else
                     {
                         ColorWrite(searchedItems[i].PartsOfLine[j],
-                            ConsoleColor.Green, ConsoleColor.White);
+                            ConsoleColor.Green, ConsoleColor.DarkGray);
                     }
                 }
 

@@ -5,11 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Task_4_FileParser.BL;
 using Task_4_FileParser.BL.Interfaces;
+using Task_4_FileParser.Presentation.Interfaces;
 using Task_4_FileParser.Presentation.Models;
 
 namespace Task_4_FileParser.Presentation
 {
-    public class FileParser
+    public class FileParser : IFileParser
     {
         private IFinder indexFinder;
         private IStringSplitter stringSplitter;
@@ -56,7 +57,7 @@ namespace Task_4_FileParser.Presentation
         }
 
         public ReplacedItemsCollectionModel Replace(string path,
-            string pattern, string newValue, bool ignoreCase, 
+            string pattern, string newValue, bool ignoreCase,
             IFileReader fileReader, IFileWriter fileWriter)
         {
             List<SearchedItemModel> searchedItems =

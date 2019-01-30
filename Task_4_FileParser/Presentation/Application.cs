@@ -41,7 +41,7 @@ namespace Task_4_FileParser.Presentation
                 return;
             }
 
-            FileParser fileParser = new FileParser(new IndexFinder(),
+            IFileParser fileParser = new FileParser(new IndexFinder(),
                 new StringSplitter());
 
             switch (selectedFeature)
@@ -59,7 +59,7 @@ namespace Task_4_FileParser.Presentation
         }
 
         private void Find(IUserInterface UI, string path, string pattern,
-            bool ignoreCase, FileParser fileParser)
+            bool ignoreCase, IFileParser fileParser)
         {
             SearchedItemsCollectionModel searchedItemsCollection;
             try
@@ -79,7 +79,7 @@ namespace Task_4_FileParser.Presentation
         }
 
         private void Replace(IUserInterface UI, string path, string pattern,
-            string newValue, bool ignoreCase, FileParser fileParser)
+            string newValue, bool ignoreCase, IFileParser fileParser)
         {
             ReplacedItemsCollectionModel replacedItems;
             try
